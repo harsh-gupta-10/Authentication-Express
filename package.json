@@ -1,0 +1,23 @@
+{
+  "name": "auth-app",
+  "version": "1.0.0",
+  "description": "auth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=.env index.js",
+    "dev": "node --watch --trace-warnings --env-file=.env index.js"
+  },
+  "author": "harsh-gupta-10",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.4",
+    "nodemailer": "^6.9.16"
+  }
+}
