@@ -1,8 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const helmet  = require('helmet');
-const cookieParser = require('cookie-parser');
-const mongoose = require('mongoose');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
+import mongoose from 'mongoose';
+import authRouter from './routers/authRouter';
 
 const app = express();
 
@@ -24,10 +25,14 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
     process.exit(1);
 });
 
-app.get('/', (req, res) => {
+app.use('/api/auth', authRouter);
+
+app.get('/', (_req, res) => {
     res.json({ message: 'Hello World' });
 });
 
-app.listen(process.env.PORT, () => {
-    console.log('Server is running');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
